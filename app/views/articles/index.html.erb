@@ -1,0 +1,35 @@
+<h1 style="color: green; font-family: Arial, sans-serif">Sigma Blog</h1>
+
+<p style="color: green; font-family: Arial, sans-serif"><%=link_to 'Create new Article', new_article_path %></p>
+<p style="color: green; font-family: Arial, sans-serif">
+<%= link_to 'All Users', users_path%><br><br>
+<%= link_to 'Logout', logout_path, method: :delete%>
+</p>
+<br>
+<hr>
+<div style="display: flex; justify-content: center; align-items: center;
+  height: 100vh; ">
+<table style="color: black; font-family: Arial, sans-serif; border-collapse: separate; border-spacing: 10px; ">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>User/ Writer</th>
+        <th>Created</th>
+        <th>Updated</th>
+    </tr>
+        <%@articles.each do |article|%>
+        <tr>
+            <td><%=article.title%></td>
+            <td><%=article.description%></td>
+            <td><%= link_to 'Show', article_path(article)%></td>
+            <td><%= link_to 'Edit', edit_article_path(article)%></td>
+            <td><%= article.user.username if article.user%></td>
+            <td><%= time_ago_in_words(article.created_at)%> ago</td>
+            <td><%= time_ago_in_words(article.created_at)%> ago</td>
+        </tr>
+        <% end%>
+</table>
+</div>
+

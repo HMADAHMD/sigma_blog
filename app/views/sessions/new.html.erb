@@ -1,0 +1,19 @@
+<!-- new.html.erb -->
+<h1  style="color: green; font-family: Arial, sans-serif"> Login </h1>
+<div style="display: flex; justify-content: center;">
+  <%= form_for :session, url: login_path do |f| %>
+
+    <p>
+      <%= f.label :email %><br>
+      <%= f.email_field :email %>
+    </p>
+    <p>
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.submit "Login" %>
+    </p>
+
+  <% end %>
+</div>

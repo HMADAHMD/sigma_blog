@@ -1,9 +1,18 @@
-<h1>Article is successfully created</h1>
 
 <p>
-    Title: <%= @article.title%>
+    <%= link_to "All Articles", articles_path%>
 </p>
+<h3 style="font-family: Arial, sans-serif; color: orange">
+    Title: <%= @article.title%>
+</h3>
 
-<p>
+
+<p style="color: black; font-family: Arial, sans-serif;">
     Description: <%= @article.description%>
 </p>
+<br>
+<hr>
+<p>
+    Created By: <%= @article.user.username if @article.user%> <br>
+    Email: <%= @article.user.email if @article.user%>
+    </p>
